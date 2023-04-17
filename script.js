@@ -31,33 +31,14 @@ $('#currentDay').text(date)
 
 
 function renSavedPlan(){
-  var savedHour = localStorage.getItem('hour-1')
-  $('#hour-1').children('textarea').val(savedHour)
+  for (var i=1 ; i <= 9 ; i++){
+  var hour = 'hour-'
+  var hourId = `${hour}${i}`
+  console.log(hourId)
+  var savedHour = localStorage.getItem(hourId)
+  $('#'+hourId).children('textarea').val(savedHour)
   console.log(savedHour)
-  
-  savedHour = localStorage.getItem('hour-2')
-  $('#hour-2').children('textarea').val(savedHour)
-  console.log(savedHour)
-
-  savedHour = localStorage.getItem('hour-3')
-  $('#hour-3').children('textarea').val(savedHour)
-  console.log(savedHour)
-
-  savedHour = localStorage.getItem('hour-4')
-  $('#hour-4').children('textarea').val(savedHour)
-  console.log(savedHour)
-
-  savedHour = localStorage.getItem('hour-5')
-  $('#hour-5').children('textarea').val(savedHour)
-  console.log(savedHour)
-
-  savedHour = localStorage.getItem('hour-6')
-  $('#hour-6').children('textarea').val(savedHour)
-  console.log(savedHour)
-
-  savedHour = localStorage.getItem('hour-7')
-  $('#hour-7').children('textarea').val(savedHour)
-  console.log(savedHour)
+  }
 }
 
 
