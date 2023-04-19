@@ -31,18 +31,14 @@ $('#currentDay').text(date)
 
 
 function renSavedPlan(){
-  for (var i=1 ; i <= 9 ; i++){
-  var hour = 'hour-'
-  var hourId = `${hour}${i}`
+  for (var i=9 ; i <= 17 ; i++){
+  var hourId = 'hour'+[i]
   console.log(hourId)
   var savedHour = localStorage.getItem(hourId)
   $('#'+hourId).children('textarea').val(savedHour)
   console.log(savedHour)
   }
 }
-
-
-
 
 function handleSavePlan(event){
   var btnClicked = $(event.target)
@@ -51,8 +47,33 @@ function handleSavePlan(event){
   localStorage.setItem(hour,plan)
 }
 
-
 $timeBlock.on('click','.saveBtn',handleSavePlan)
+
+function timeTracker() {
+ 
+  var curTime = dayjs().hour();
+  
+  $timeBlock.each(function(){
+  var workHour = parseInt($(this).attr('id').split('hour')[1])
+  console.log(workHour)
+  if(workHour < curTime){
+    $(this).removeClass('future')
+    $(this).removeClass('present')
+    $(this).addClass('past')
+  }
+  else if(workHour === curTime){
+    $(this).removeClass('future')
+    $(this).removeClass('past')
+    $(this).addClass('present')
+  }
+  else{
+    $(this).addClass('future')
+    $(this).removeClass('present')
+    $(this).removeClass('past')
+  }
+  })
+}
 
 renSavedPlan();
 currentDay();
+timeTracker()
