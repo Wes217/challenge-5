@@ -17,3 +17,10 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 ```
+## Description
+
+A planner for work day events
+
+## Deployment
+![https://wes217.github.io/challenge-4/]
+![planner](image/planner.png)
